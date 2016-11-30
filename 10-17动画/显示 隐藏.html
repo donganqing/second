@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="text/javascript" src="js/jquery-1.12.4.js">
+		</script>
+		<style>
+			#p1{
+				width:500px;
+				height:100px;
+				background:darkgoldenrod;
+				text-align:center;
+				line-height:100px;
+			}
+		</style>
+		<script>
+			$(document).ready(function(){
+				/*$("#hide").click(function(){
+					$("#p1").hide("slow");
+				});
+				$("#show").click(function(){
+					$("p").show("fast");
+				})*/
+				$("#bnt").click(function(){//点击一个按钮，可进行显示 隐藏切换
+					$("p").toggle("slow");
+				})
+			})
+		</script>
+	</head>
+	<body>
+		<p id="p1">如果点击“隐藏”按钮，我就会消失。</p>
+		<input type="button" name="hide" id="hide" value="隐藏" />
+		<input type="button" name="show" id="show" value="显示" />
+		<input type="button" name="bnt" id="bnt" value="切换" />
+	</body>
+</html>

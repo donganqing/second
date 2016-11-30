@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-3.1.0.min.js" type="application/javascript"></script>
+		<style>
+			.div{
+				width:100px;
+				height:100px;
+				background:darkmagenta;
+			}
+		</style>
+	</head>
+	<script>
+		$(document).ready(function(){
+			$("div").addClass("div");//添加类
+			$("div").removeClass("div");//移除类
+			$("div").toggleClass("div");//添加和移除切换的   如果开始是添加，则现在是移除；如果开始是移除，则现在是添加
+			$("div").css("background","#FF0000");//设置或返回样式属性
+			$("div").width("300").height("500");//设置宽高
+			
+			
+		})
+	</script>
+	<body>
+		<div></div>
+	</body>
+</html>

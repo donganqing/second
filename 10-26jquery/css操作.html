@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-3.1.0.min.js" type="application/javascript"></script>
+		
+	</head>
+	<body>
+		<div id="div" style="width:500px;height:100px;background:red;"></div>
+		<div id="div" style="width:500px;height:200px;background:chartreuse"></div>
+		<div id="div" style="width:500px;height:200px;background:chartreuse"></div>
+		<div id="div" style="width:500px;height:200px;background:chartreuse"></div>
+		<div id="div" style="width:500px;height:200px;background:chartreuse"></div>
+		<div id="div" style="width:500px;height:200px;background:chartreuse"></div>
+	</body>
+	<script>
+		//获取属性值
+		/*var height = $("div").css("height");
+		alert(height);*///100px 弹出的是第一个div的高度值，只获取第一个元素对应的属性值\n
+		//设置属性值
+		//$("div").css("height","300px");//同时设置2个div的高度    设置时可以同时设置多个
+		//$("div").css({"width":"100px","hright":"100px","background":"green"});//以对象的形式输入属性 属性值
+		//设置所有的div高度=原高度的一半
+		/*$("div").css("height",function(index,value){//index为获取元素的下标  value为元素的属性值
+			var newValue = Math.round(parseInt(value)/2);
+			return newValue + "px";
+		})*/
+		
+		/*$("div").css("background",function(index,value){
+			if(index==0){
+				return "darkmagenta";
+			}else{
+				return "red";
+			}
+		})*/
+		//等价于下面的
+		$("div").css("background",function(index,value){
+			var value;
+			if(index==0){
+				value= "darkmagenta";
+			}else{
+				value= "red";
+			}
+			return value;
+		})
+		
+		
+		
+		
+	</script>
+</html>

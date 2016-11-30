@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-1.12.4.js"></script>
+		<script>
+		//animate({params},speed,callback)
+		//必须的params:参数定义形成动画的css属性
+		//注意：默认情况下，所有 HTML 元素的位置都是静态的，并且无法移动。如需对位置进行操作，记得首先把元
+		//素的 CSS position 属性设置为 relative、fixed 或 absolute。
+
+
+			$(document).ready(function(){
+				$("#bnt").click(function(){
+					//操作单个属性
+					/*$("#box").animate({
+						left:"1000px"
+					},"slow");*/
+					//操作多个属性
+					/*$("#box").animate({
+						left:"800px",
+						top:"300px",
+						opacity:"0.5",
+						width:"300px",
+						height:"300px"
+					},"slow");*/
+					//可以使用相对值 即+=  -=
+					/*$("#box").animate({
+						left:"500px",
+						top:"500px",
+						width:"+=200px",
+						height:"-=90px"
+					},"slow")*/
+					//animate() 队列功能
+					/*var div=$("#box");
+					div.animate({height:"400px",opacity:"0.4"},"slow");
+					div.animate({width:"400px",opacity:"0.8"},"slow");
+					div.animate({height:"100px",opacity:"0.4"},"slow");
+					div.animate({width:"100px",opacity:"0.8"},"slow")
+						*/
+						//animate() 增加文字的字号
+						var div=$("#box");
+						div.animate({left:"800px"},"slow");
+						div.animate({fontSize:"50px"},"slow");
+						
+					
+				});
+			})
+		</script>
+		<style>
+			#box{
+				width:200px;
+				height:200px;
+				text-align:center;
+				line-height:200px;
+				background:chartreuse;
+				position:absolute;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" name="bnt" id="bnt" value="动画" />
+		<div id="box">hello</div>
+	</body>
+</html>

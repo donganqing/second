@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script>
+	//通过原型链完成的继承
+		function Person(schoolId){//构造函数	首字母大写
+			this.schoolId = schoolId;
+		}
+		Person.prototype.showAge=function(){//构造函数给添加方法
+			alert(this.age);
+		}
+		Person.prototype.showName=function(){//构造函数给添加方法
+			alert(this.name);
+		}
+		Person.prototype.showSchoolId=function(){//构造函数给添加方法
+			alert(this.schoolId);
+		}
+		var person1=new Person(1001);//使用构造函数
+		function Teacher(name,age,tId,course){
+			this.name = name;
+			this.age = age;
+			this.tId = tId;
+			this.course = course;
+		}
+		Teacher.prototype=person1;
+		
+		function Student(name,age,id,sex,className){
+			this.name = name;
+			this.age = age;
+			this.id = id;
+			this.sex = 1;
+			this.className = className;
+		}
+		Student.prototype = person1;
+		
+		var student1 = new Student("zhang",18,1001,1,"1632");
+		var teacher1 = new Teacher("wang",34,101,"h5");
+		
+		//teacher1.showName();//wang
+		//teacher1.showSchoolId();//1001
+		//alert(student1.id);//1001
+		//alert(student1.className);//1632
+		student1.showSchoolId();//1001
+		student1.showName();//zhang
+		
+		
+	</script>
+</html>

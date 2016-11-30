@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-1.12.4.js"></script>
+		<script>
+			$(document).ready(function(){
+				$("#box").click(function(){
+					$("#div1").slideDown(5000);
+				});
+				$("#bnt").click(function(){
+					$("#div1").stop();
+				});
+			});
+		</script>
+		<style>
+			#box{
+				width:500px;
+				height:50px;
+				text-align:center;
+				line-height:50px;
+				background:aquamarine;
+				margin-bottom: 1px solid #FFF;
+			}
+			#div1{
+				width:500px;
+				height:200px;
+				background:darkseagreen;
+				text-align:center;
+				line-height:200px;
+				display:none;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" name="bnt" id="bnt" value="停止" />
+		<div id="box">点击我！</div>
+		<div id="div1">的快速减肥上岛咖啡你看的农村</div>
+	</body>
+</html>

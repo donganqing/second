@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<div id="div1"></div>
+		<script>
+		//json
+		//1.业务逻辑函数
+		var oDiv1 = document.getElementById("div1");
+		function loadUserTotal(arrUserData){
+			for(var i = 0;i < arrUserData.length;i++){
+				var obj = JSON.parse(arrUserData[i].Data);//string
+				var p1 = document.createElement("p");
+				p1.innerHTML = "姓名："+obj.name+"-----------;积分："+obj.total;
+				oDiv1.appendChild(p1);
+			}
+		}
+		//利用script标签的src可以跨域的属性，获取数据
+		</script>
+		<script src="http://10.17.158.44:8077/Product/GetProductsByPage_get?pagesize=10&pageindex=1&callback=loadUserTotal"></script>
+		
+	</body>
+</html>

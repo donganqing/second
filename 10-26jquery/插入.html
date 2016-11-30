@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-3.1.0.min.js" type="application/javascript"></script>
+		<style>
+			div{
+				width: 300px;
+				height: 300px;
+				border:2px solid cornflowerblue;
+				box-shadow:0 5px 5px red;
+			}
+		</style>
+	</head>
+	<body>
+		<div>我是一个div<p>我是p标签</p></div>
+		<!--<p>我是p标签</p>-->
+	</body>
+	<script>
+	//append()在被选元素的结尾插入内容	append()与appendTo()效果相反
+		//$("div").append("<p>我是p标签</p>");//把p插入到div中
+		//$("p").appendTo("div");//把p插入到div中
+		//$("div").appendTo("p");//把div插入到p中
+	//prepend()在被选元素的开头插入内容  prepend()与prependTo()的效果相反
+	//$("div").prepend("<p>我是p2</P>");//在div前面插入‘我是p2的<p>标签’
+	//$("p").prependTo("div");//把p插入到div的前面
+	$("div").after($("p"));//把p插入到div之后作为兄弟节点   是平级的
+	$("div").insertAfter($("p"));//效果和after相反	把div插入到p之后
+	
+		
+		
+		
+	</script>
+</html>

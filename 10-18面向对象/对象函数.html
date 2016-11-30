@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script>
+	var person1=createPerson("zhang",30,"1632");
+	var person1=createPerson("li",26,"1632");
+		function createPerson(name,age,className){
+			var obj=new Object();
+			obj.name = name;
+			obj.age = age;
+			obj.className = className;
+			obj.showName = function(){
+				alert(this.name);
+			}
+			obj.showAge = function(){
+				alert(this.age);
+			}
+			return obj;
+		}
+	</script>
+</html>

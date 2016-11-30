@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-1.12.4.js"></script>
+		<script>
+		//callback() 当动画100%完成后执行的函数
+			$(document).ready(function(){
+				$("#bnt").click(function(){
+					$("#box").hide("slow",function(){
+						alert("关闭了，消失了！");
+					});
+				});
+			});
+		</script>
+		<style>
+			#box{
+				width:500px;
+				height:500px;
+				line-height:500px;
+				text-align:center;
+				background:aquamarine;
+				font-size:30px;
+			}
+		</style>
+		
+	</head>
+	<body>
+		<input type="button" name="bnt" id="bnt" value="点击" />
+		<div id="box">this is 发动机飞机热敷的二十五ID经济科学聪明</div>
+	</body>
+</html>

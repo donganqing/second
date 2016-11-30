@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			td{
+				font-size: 50px;
+				color: red;
+			}
+		</style>
+		
+	</head>
+
+	<body>
+		<table id = "tab">
+			<tr>
+				<td>☆</td>
+				<td>☆</td>
+				<td>☆</td>
+				<td>☆</td>
+				<td>☆</td>
+			</tr>
+		</table>
+	</body>
+<script type = "text/javascript">
+			function indexOf(arr, element) { //传入array数组和当前值
+				for(var i = 0; i < arr.length; i++) {
+					if(arr[i] == element) { //第i个值等于当前值
+						return i; //返回i
+					}
+				}
+			}
+
+			function initEvent() {
+				var oTab = document.getElementById("tab"); 
+				var tds = oTab.getElementsByTagName("td"); 
+				for(var i = 0; i < tds.length; i++) { //遍历
+					var td = tds[i];
+					td.style.cursor = 'pointer'; //设置鼠标显示形式
+					td.onmouseover = function() { //当鼠标移动时… …
+						var oTab = document.getElementById("tab"); 
+						var tds = oTab.getElementsByTagName("td");
+						var index = indexOf(tds, this); //调用函数indexof计算鼠标当前为值
+						for(var i = 0; i <= index; i++) { //遍历鼠标之前的值
+							tds[i].innerText = '★'; //将其赋值为“★”
+						}
+						for(var i = index + 1; i < tds.length; i++) { //遍历鼠标之后的值
+							tds[i].innerText = '☆'; //将其赋值为“☆“
+						}
+					};
+				}
+			}
+			initEvent();
+		</script>
+</html>

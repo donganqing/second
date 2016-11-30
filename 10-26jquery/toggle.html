@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-3.1.0.min.js" type="application/javascript"></script>
+	</head>
+	<body>
+		<input type="button" name="" id="clickMe" value="clickMe" />
+		<button>&raquo;更多</button>
+		<img src="img/001.jpg" width="600" height="400" style="position:absolute;left:100px;">
+			
+	</body>
+	<script>
+	$(function(){
+		$("#clickMe").click(function(){
+			$("img").animate({
+				 opacity: 0.25,
+    			left: '+=50',
+   				 height: 'toggle'
+			},3000)
+		})
+	})
+	
+		
+	</script>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>json</title>
+</head>
+<body>
+
+<div >
+    <ul id="ul_1">
+        <!--<li><p>name</p>
+            <p>age</p>
+            <p>tel</p>
+            <div>
+                <p>f name</p>
+            </div>
+        </li>-->
+    </ul>
+</div>
+<div id="div1">
+    <input id="bt1" type="button" value="加载更多"/>
+</div>
+<script>
+    var pageIndex=1;
+    var oDiv1=document.getElementById("div1");
+    var bt1=document.getElementById("bt1");
+    var oU=document.getElementById("ul_1")
+    bt1.onclick=function(){
+        //ajax
+        //渲染页面
+        var xhr=new XMLHttpRequest();
+        xhr.open("post","data/userdataList"+pageIndex+".json?t="+new Date().getTime(),true);//不行；
+        xhr.onreadystatechange=function(){
+            if(xhr.readyState==4){
+                if(xhr.status==200){
+                    //渲染页面
+                    var  arrData=JSON.parse(xhr.responseText);
+                    pageIndex++;
+                    for(var j=0;j<arrData.length;j++){
+                        var html="";
+                        html+="<li><p>"+arrData[j].name+"</p><p>"+arrData[j].age+"</p><p>"+arrData[j].tels+"</p><div><p>"+arrData[j].friend.name+"</p></div></li>";
+                        oU.innerHTML+=html;
+                    }
+                }else{
+                    alert("未找到");
+                }
+            }
+        }
+        xhr.send();
+    }
+</script>
+</body>
+</html>

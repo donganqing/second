@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-1.12.4.js"></script>
+		<script>
+			$(document).ready(function(){
+				//slideDown() 用于向下滑动元素 要滑动的元素得设display:none;
+				$(".flip").click(function(){
+					/*$(".panel").slideDown("slow");*/
+					//slideUp() 用于向上滑动元素
+					/*$(".panel").slideUp("slow");*/
+					//slideToggle 方法在slideDown()与SlideUp()之间进行切换
+					$(".panel").slideToggle("slow");
+				})
+				
+				
+				
+			})
+		</script>
+		<style>
+		*{
+			margin:0;
+			padding:0;
+		}
+			.panel{
+				width:500px;
+				height:400px;
+				background:aquamarine;
+				border-bottom:1px solid #FFF;
+				/*display: none;*/
+			}
+			.flip{
+				width:500px;
+				height:50px;
+				background:aquamarine;
+				text-align:center;
+				line-height:50px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div class="panel">
+			<p>W3School - 领先的 Web 技术教程站点</p>
+			<p>在 W3School，你可以找到你所需要的所有网站建设教程。</p>
+		</div>
+
+		<p class="flip">请点击这里</p>
+
+	</body>
+
+</html>

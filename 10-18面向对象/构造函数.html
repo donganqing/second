@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+	</body>
+	<script>
+		//解决对象之间关系描述的问题
+		//1.new隐式的创建了一个对象
+		//2.this指向刚创建的对象
+
+			this.name = name;
+			this.age = age;
+			this.className = className;
+			this.showName=function(){
+				alert(this.name);
+			}
+			this.getAge = function(){
+				alert(this.age);
+			}
+		}
+		var person1 = new Person("zhang",30,"1632");
+		var person2 = new Person("li",26,"1632");
+		alert(person1 instanceof Person);//true instanceof判断类型，返回布尔值
+		
+	</script>
+</html>

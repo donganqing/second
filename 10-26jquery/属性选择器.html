@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+		<script type="application/javascript" src="jquery-3.1.0.min.js"></script>
+	</head>
+	
+	<body>
+		<div id="div1"></div>
+		<input type="text" name="en man" id="en" value="" />
+		<input type="text" name="en-end" id="en-end" value="" />
+		<input type="text" name="end man" id="and" value="" />
+		<input type="button" name="en" id="en" value="" />
+	</body>
+	<script>
+			$('#div1').html('<strong>我是JQUERY!</strong>');
+			//$("input[id|='en']").val("123455")//val==value 1 2选中   选取所有id为en 或者以en为前缀的input
+			//$("input[type*='text']").val('我是jquery!')// 1 2 3选中         选取所有type=text的input
+			//$("input[name~='man']").val('居安思危，思而有备！')//1 3选中	选取制定属性用空格分割的值中包含一个给定值得元素
+			//$("input[name$='n']").val("学而不思则罔，思而不学则殆！");//1 3选中	选取所有属性值以n结尾的元素
+			//$("input[name^='en']").val("再接再厉!");//1 2 3选中  选取属性值以en开头的元素
+			//$("input[id*='en']").val("come on!");//都被选中   选取所有属性值中带有en的元素
+			$("[type]").val("破茧成蝶")//选取所有带有type属性的元素
+			$("[type='text']").val("凤凰涅槃！");//选取所有type=text的元素
+			$("input[type!='text']").val("jiazai!");//选取所有type!=text的元素
+			$("input[type='text'][id^='en']").val("加载！");//1 2 选中			
+			
+			
+			
+	</script>
+</html>

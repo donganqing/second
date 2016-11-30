@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-3.1.0.min.js" type="application/javascript"></script>
+		<style>
+			button{
+				font-size:16px;
+				border:1px solid #7FFFD4;
+			}
+			div{
+				width:300px;
+				height:30px;
+				border:3px solid red;
+				background:darkseagreen;
+				margin-top:10px;
+				text-align:center;
+				line-height:30px;
+			}
+		</style>
+	</head>
+	<body>
+		<button id="bnt1">&raquo;动画1</button>
+		<button id="bnt2">&raquo;动画2</button>
+		<button id="bnt3">同时动</button>
+		<button id="bnt4">&raquo;重置</button>
+		<div id="box1">Block1</div>
+		<div id="box2">Block2</div>
+	</body>
+	<script>
+		$("#bnt1").on("click",function(){
+			$("#box1").animate({width:"90%"},{queue:false,duration:3000})
+					  .animate({fontSize:"25px"},1500)
+					  .animate({borderRightWidth:"15px"},1500);
+		});
+		$("#bnt2").on("click",function(){
+			$("#box2").animate({width:"90%"},1000)
+					  .animate({fontSize:"25px"},1000)
+					  .animate({borderLeftWidth:"25px"},1000);
+		});
+		$("#bnt3").on("click",function(){
+			$("#bnt1").add("#bnt2").click();
+		})
+		$("#bnt4").on("click",function(){
+			$("div").css({
+				width:"",
+				fontsize:"",
+				borderWidth:""
+			})
+		})
+		
+	</script>
+</html>

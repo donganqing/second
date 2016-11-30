@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-i8">
+		<title></title>
+		<script type="application/javascript" src="jquery-3.1.0.min.js"></script>
+		<style>
+			.red{
+				background:red;
+			}
+			.red.green{
+				background:greenyellow;
+			}
+		</style>
+	</head>
+	<body>
+		<div>this div should be white</div>
+		<div class="red">this div should be red</div>
+		<div>this div should be white</div>
+		<p>this are zero green divs</p>
+	</body>
+	<script>
+		$(function(){
+			$("div").addClass(function(index,currentClass){
+				var addedClass;
+				if(currentClass === "red"){
+					addedClass = "green";
+					$("p").text("this is one green div");
+				}
+				return addedClass;
+			})
+		})
+	</script>
+</html>

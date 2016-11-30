@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-3.1.0.min.js"></script>
+		<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+			#box{
+				width: 800px;
+				height: 400px;
+				border: 1px solid aquamarine;
+				margin: 0 auto;
+			}
+			p{
+				float: left;
+			}
+			.p1{
+				width: 520px;
+				height: 400px;
+				background: red;
+			}
+			.p2{
+				width: 70px;
+				height: 400px;
+				background: blueviolet;
+			}
+			.p3{
+				width: 70px;
+				height: 400px;
+				background: chartreuse;
+			}
+			.p4{
+				width: 70px;
+				height: 400px;
+				background: darkorange;
+			}
+			.p5{
+				width: 70px;
+				height: 400px;
+				background: mediumpurple;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div id="box">
+			<p class="p1"></p>
+			<p class="p2"></p>
+			<p class="p3"></p>
+			<p class="p4"></p>
+			<p class="p5"></p>
+		</div>
+	</body>
+	<script>
+		$(function(){
+			$("p").mouseover(function(){
+				$(this).stop().animate({"width":"520px"},1000).siblings().stop().animate({"width":"70px"},1000);
+			})
+			
+			
+		})
+	</script>
+</html>

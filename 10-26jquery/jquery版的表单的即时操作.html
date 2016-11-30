@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-3.1.0.min.js"></script>
+		<style>
+			table {
+				border: 3px solid royalblue;
+			}
+			
+			td {
+				width: 100px;
+				height: 40px;
+				border: 3px solid chartreuse;
+			}
+		</style>
+	</head>
+
+	<body>
+		行：<input type="text" name="tx1" id="tx1" value="5" /> 列：
+		<input type="text" name="tx2" id="tx2" value="4" />
+		<input type="button" name="" id="bnt" value="生成表格" />
+	</body>
+	<script>
+		$("#bnt").click(function() {
+			$("table").html("");
+			$(document.body).append("<table></table>");
+			var sum = $("#tx1").val();
+			for(var i = 0; i < sum; i++) {
+				$("table").append("<tr></tr>");
+
+			}
+			var count = $("#tx2").val();
+			for(var j = 0; j < count; j++) {
+				$("tr").append("<td></td>");
+			}
+			
+
+			//添加删除功能
+			$("td:last-child").after("<button>删除</button>");
+			$("button").css({
+				"textAlign": "center",
+				"lineHeight": "40px"
+			});
+			$("button").click(function() {
+					$(this).parent().remove();
+				})
+				//添加下一行功能
+			$("button").after("<button>添加下一行</button>");
+			$("button").click(function() {
+				$(this).parent().after($(this).parent().clone(true));
+				//
+			})
+
+			
+			})
+
+		
+	</script>
+
+</html>

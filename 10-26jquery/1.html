@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-3.1.0.min.js" type="application/javascript"></script>
+		<style>
+			button{
+				font-size:16px;
+			}
+			#box1,#box2{
+				width:200px;
+				height:30px;
+				border:3px solid darkgreen;
+				background:aquamarine;
+				margin-top:5px;
+				text-align:center;
+				line-height:30px;
+			}
+		</style>
+		<script>
+			$(function(){
+				$("#bnt1").click(function(){//列队功能   动画会执行完一个再执行一个
+					$("#box1").animate({width:"90%"},{queue:false,duration:3000})
+							 .animate({fontSize:"25px"},1500)
+							 .animate({borderRightWidth:"25px"},1500);
+				})
+				$("#bnt2").click(function(){
+					$("#box2").animate({//动画会同时执行
+						width: "90%",
+						fontSize: "25px",
+						borderLeftWidth: "25px"
+					},3000)
+							 /* .animate({fontSize: "25px"},1000)
+							  .animate({borderLeftWidth: "25px"},1000)*/
+				})
+				$("#bnt3").on("click",function(){
+					$("#bnt1").add("#bnt2").click();
+				})
+				$("#bnt4").click(function(){
+					$("div").css({
+						width: "",
+						fontSize: "",
+						borderWidth: ""
+					})
+				})
+				
+				
+			})
+		</script>
+	</head>
+	<body>
+		<button id="bnt1">&raquo;动画一</button>
+		<button id="bnt2">&raquo;动画二</button>
+		<button id="bnt3">&raquo;同时进行</button>
+		<button id="bnt4">&raquo;重置</button>
+		<div id="box1">dfregtrg</div>
+		<div id="box2">dfrgsbgf</div>
+	</body>
+</html>

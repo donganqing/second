@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style>
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			#head {
+				width: 20px;
+				height: 20px;
+				background: red;
+				position: absolute;
+			}
+			
+			#box {
+				width: 500px;
+				height: 600px;
+				border: 3px solid darkblue;
+				background: #FFF;
+				position: absolute;
+				left: 200px;
+			}
+			div{
+				width: 20px;
+				height: 20px;
+				background:aquamarine;
+				position:absolute;
+			}
+		</style>
+	</head>
+
+	<body>
+		<div id="box">
+			<div id="head"></div>
+			<div id="food"></div>
+		</div>
+	</body>
+	<script>
+		var oHead = document.getElementById("head");
+		var oBox = document.getElementById("box");
+		var oFood=document.getElementById("food");
+			oFood.style.left=5*Math.ceil(Math.random()*96)+"px";
+			oFood.style.top=5*Math.ceil(Math.random()*116)+"px";
+		var timer
+		document.onkeydown = function(e) {
+			//alert(e.keyCode);//从左到下，顺时针依次是37 38 39 40
+			switch(e.keyCode) {
+				//往右移动
+				case 39:
+					clearInterval(timer);
+					timer = setInterval(function() {
+						if(oHead.offsetLeft >= 500 - 20) {
+							clearInterval(timer);
+							alert("撞死了，游戏结束了！")
+						} else {
+							oHead.style.left = oHead.offsetLeft + 5 + "px";
+						}
+					}, 100);
+					break;
+					//往下移动
+				case 40:
+					clearInterval(timer);
+					timer = setInterval(function() {
+						if(oHead.offsetTop >= 600 - 20) {
+							clearInterval(timer);
+							alert("撞死了，游戏结束了！")
+						} else {
+							oHead.style.top = oHead.offsetTop + 5 + "px";
+						}
+					}, 100);
+					break;
+					//往左移动
+				case 37:
+					clearInterval(timer);
+					timer = setInterval(function() {
+						if(oHead.offsetLeft <= 0) {
+							clearInterval(timer);
+							alert("撞死了，游戏结束了！")
+						} else {
+							oHead.style.left = oHead.offsetLeft - 5 + "px";
+						}
+					}, 100);
+					break;
+					//往上移动
+				case 38:
+					clearInterval(timer);
+					timer = setInterval(function() {
+						if(oHead.offsetTop <= 0) {
+							clearInterval(timer);
+							alert("撞死了，游戏结束了！")
+						} else {
+							oHead.style.top = oHead.offsetTop - 5 + "px";
+						}
+					}, 100);
+					break;
+			}
+			//随机生成食物
+			/*var div=document.createElement("div");
+			oBox.appendChild(div);
+			div.style.left=5*Math.ceil(Math.random()*96)+"px";
+			div.style.top=5*Math.ceil(Math.random()*116)+"px";*/
+			if(oFood.style.left==oHead.style.left&&oFood.style.top==oHead.style.top){
+				oFood.style.display="none";
+			}
+			
+			
+			
+		}
+	</script>
+
+</html>

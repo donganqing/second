@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-3.1.0.min.js" type="application/javascript"></script>
+	</head>
+	<body>
+		<div id="div1" class="box1"></div>
+		<div id="div2" class="box2"></div>
+		<div id="div3" class="box3"></div>
+		<div id="div4" class="box4"></div>
+		<p>23243</p>
+		<p>23243</p>
+		<p>23243</p>
+		<p>23243</p>
+	</body>
+	<script>
+		$("*div").html('1234443');//选取所有的div
+		$("#div2").html("<em>居安思危</em>");//选取id=div1的元素
+		$(".box3").html("<strong>思而有备！</strong>");//选取所有class=box3的元素
+		$("p").html("这是一个标题");//选取所有的p标签
+		$("#div1,#div4").text("U盾合肥今年房价多少");//选取id=div1  id=div4的元素
+	</script>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-3.1.0.min.js" type="application/javascript"></script>
+		<style>
+			.button{
+				border:2px solid red;
+				background:chartreuse;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<form>
+			<fieldset>
+				<input type="button" name="" id="" value="提交" /><br />
+				<input type="checkbox" name="" id="" value="" /><br />
+				<input type="file" name="" id="" value="" /><br/>
+				<input type="hidden" name="" id="" value="" /><br />
+				<input type="image" name="" id="" value="" /><br />
+				<input type="password" name="" id="" value="" /><br />
+				<input type="radio" name="" id="" value="" /><br />
+				<input type="reset" name="" id="" value="重置" /><br />
+				<input type="submit" name="" id="" value="提交" /><br />
+				<input type="text" name="" id="" value="" /><br />
+				<select><option>1</option><option>2</option><option>3</option></select><br />
+				<textarea></textarea><br />
+				<button>button</button>
+			</fieldset>
+		</form>
+		<div></div>
+	</body>
+	<script>
+		var input = $(":button").addClass("button");
+		$("div").text("hello,kity!found"+input.length+"个button!")
+		$("form").submit(function(){return false;})
+		
+	</script>
+</html>

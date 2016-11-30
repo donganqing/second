@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+
+	<body>
+		<input type="button" name="btnext" id="btnext" value="加载下一页" />
+		<input type="text" name="uname" id="uname" value="jong" />
+		<input type="text" name="utotal" id="utotal" value="1000" />
+		<input type="button" name="btsubmit" id="btsubmit" value="提交成绩" />
+		<div id="div1"></div>
+	</body>
+	<script>
+		//jsonp
+		//1.业务逻辑
+		var oDiv1 = document.getElementById("div1");
+		var oBtnext = document.getElementById("btnext");
+		var pagaIndex = 1;
+
+		function loadUserTotal(arrUserDate) {
+			//arrUserDate排序
+			arrUserDate.sort(function(a, b) {
+				try {
+					var oa = JSON.parse(a.Data);
+					var ob = JSON.parse(b.Data);
+					return ob.total - oa.total;
+				} catch(e) {
+					console.log(e);
+					return 1;
+				}
+			})
+			oDiv1.innerHTML = "";
+			for(var i = 0; i < arrUserDate.length; i++) {
+				try {
+					var obj = JSON.parse(arrUserDate[i].Data);
+					var p1 = document.createElement("p");
+					p1.innerHTML = "姓名：" + obj.name + ";积分：" + obj.total;
+					oDiv1.appendChild(p1);
+				} catch(e) {
+					console.log(e);
+				}
+			}
+		}
+		var srp = document.createElement("script");
+		srp.src = "http://10.17.158.44:8077/Product/GetProductsByPage_get?type=feijidazhan&pagesize=10&pageindex=1&callback=loadUserTotal";
+		document.body.appendChild(srp);
+		oBtnext.onclick = function() {
+				pagaIndex++;
+				var srp = document.createElement("script");
+				srp.src = "http://10.17.158.44:8077/Product/GetProductsByPage_get?type=feijidazhan&pagesize=10&pageindex=" + pagaIndex + "&callback=loadUserTotal";
+				document.body.appendChild(srp);
+			}
+			//利用script 标签的src 可以跨域的属性，获取数据；
+	</script>
+	<script>
+		var oBtSubmit = document.getElementById("btsubmit");
+		oBtSubmit.onclick = function() {//提交成功返回1
+			var uName = document.getElementById("uname").value;
+			var uTotal = document.getElementById("utotal").value;
+			var uData = {
+				name: uName,
+				total: uTotal
+			}
+
+			var uDataStr = JSON.stringify(uData);
+
+			//后台给我们的接口是啥样
+			var srp = document.createElement("script");
+			srp.src = "http://10.17.158.44:8077/Product/CreateUpdateProduct_get?type=feijidazhan&id=" + uName + "&datajson=" + uDataStr + "&callback=updateComplete";
+
+			document.body.appendChild(srp);
+		}
+
+		function updateComplete(data) {
+			alert(data);
+		}
+	</script>
+
+</html>

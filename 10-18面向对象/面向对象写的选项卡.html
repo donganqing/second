@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+			
+			#div1 div {
+				width: 200px;
+				height: 200px;
+				background: aquamarine;
+				display: none;
+			}
+			
+			#div1 input {
+				background: chartreuse;
+			}
+			
+			#div1 .active {
+				background: orange;
+			}
+		</style>
+		<script type="text/javascript">
+			/*
+						 面向对象改造应遵循下述几点
+						1.不能有函数嵌套
+						2.可以有全局变量
+						 */
+			window.onload = function() {
+				new Tab("div1").inti();
+				//构造函数调用时，前面用new关键字
+			}
+
+			function Tab(id) {//构造函数，首字母大写      this指向该新的对象
+				this.oDiv = document.getElementById(id);
+				this.aInput = this.oDiv.getElementsByTagName("input");
+				this.aDiv = this.oDiv.getElementsByTagName("div");
+				this.iNow = 0;
+			}
+			Tab.prototype.inti = function() {//原型
+				var that = this;
+				for(var i = 0; i < this.aInput.length; i++) {
+					this.aInput[i].index = i;
+					this.aInput[i].onclick = function() {
+						that.change(this);
+						that.iNow = this.index; //将iNow置于当前的索引值，点击后自动从当前索引值开始播放
+					}
+				}
+			}
+			Tab.prototype.change = function(obj) {
+				for(var i = 0; i < this.aInput.length; i++) {
+					this.aInput[i].className = "";
+					this.aDiv[i].style.display = "none";
+				}
+				obj.className = "active";
+				this.aDiv[obj.index].style.display = "block";
+			}
+		</script>
+	</head>
+
+	<body>
+		<div id="div1">
+			<input type="button" value="教育" class="active" />
+			<input type="button" value="财经" />
+			<input type="button" value="游戏" />
+			<div id="education" style="display:block;">
+				教育：本部分提供完整的JavaScript 参考手册；
+			</div>
+			<div>
+				财经：本部分提供完整的JavaScript 参考手册； JavaScript 本地对象和内置对象
+			</div>
+			<div>
+				游戏：本部分提供完整的JavaScript 参考手册； 以及所有你想玩的游戏和自新版的游戏，快了吧！
+			</div>
+		</div>
+	</body>
+
+</html>

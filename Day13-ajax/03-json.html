@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>json</title>
+</head>
+<body><input type="text" value="123"/>
+<div id="div1">
+    <p>name</p>
+    <p>id</p>
+</div>
+<input id="bt1" type="button" value="加载"/>
+<script>
+    var oBt=document.getElementById("bt1");
+    var oDiv=document.getElementById("div1");
+    oBt.onclick=function(){
+        //ajax 去服务器 把那个数据获取下来。
+        //1.创建
+        var xhr=new XMLHttpRequest();
+        //2. open
+        xhr.open("get","data/userdata.json",true);
+        //4 事件
+        xhr.onreadystatechange=function(){
+            //alert(xhr.readyState);
+            if(xhr.readyState==4){
+                if(xhr.status==200){
+                    //var nameData=xhr.responseText;//string  json
+                    //var ob=JSON.parse(xhr.responseText);
+                    var str="("+xhr.responseText+")";
+                    var ob=eval(str);
+                    oDiv.innerHTML="<p>"+ob.name+"</p><p>"+ob.age+"</p>";
+                }else{
+                    alert("未找到");
+                }
+            }
+        }
+        //3.send
+        xhr.send();
+    }
+</script>
+</body>
+</html>

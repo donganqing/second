@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-3.1.0.min.js" type="application/javascript"></script>
+		<style>
+		*{
+			margin: 0;
+			padding: 0;
+		}
+			div{
+				width: 300px;
+				height: 400px;
+				border: 1px solid red;
+				position: absolute;
+				left: 500px;
+				top: 50px;
+			}
+			.img{
+				width: 300px;
+				height: 400px;
+			}
+			span{
+				position: absolute;
+				top: 0px;
+				display: block;
+				width: 300px;
+				height: 50px;
+				background: blueviolet;
+				text-align: center;
+				line-height: 50px;
+				opacity: .5;
+				display: none;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div>
+			<img class="img" src="img/1.jpg"/>
+			<span>居安思危，思而有备！</span>
+		</div>
+	</body>
+	<script>
+		$(function(){
+			$("div").on({
+				mouseenter: function(){
+					$("span").stop().animate({top:350},2000).css("display","block");
+				},
+				mouseleave: function(){
+					$("span").stop().animate({top:0},2000).queue(function(){
+						$(this).css("display","none");	
+					});
+				}
+			})
+		})
+	</script>
+</html>

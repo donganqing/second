@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="http://cdn.bootcss.com/jquery/1.11.2/jquery.min.js"></script>
+		<style>
+			.block{
+				width: 200px;
+				height: 70px;
+				background-color: blue;
+				margin: 10px;
+			}
+		</style>
+	</head>
+	<body>
+		<button>&raquo;go</button>
+		<div class="block"></div>
+	</body>
+	<script>
+	(function(){
+		var url = "http://raw.github.com/jquery-color/master/jquery.color.js";
+		$.getScript(url,function(){
+			$("button").click(function(){
+				$("block").animate({backgroundColor: "rgb(255,180,180)"}, 1000)
+						  .animate({backgroundColor: "olive"}, 1000)
+						  .animate({backgroundColor: "#00f"}, 1000)
+			});
+		});
+	})()
+		
+		
+	</script>
+</html>

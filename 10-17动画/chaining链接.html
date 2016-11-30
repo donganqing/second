@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="js/jquery-1.12.4.js"></script>
+		<script>
+			$(document).ready(function(){
+				$("#bnt").click(function(){
+					$("#box").css("color","red")
+					.slideUp(5000)
+					.slideDown(5000)
+				});
+			});
+		</script>
+		<style>
+			#box{
+				width:500px;
+				height:300px;
+				background:chartreuse;
+				text-align:center;
+				line-height:300px;
+			}
+		</style>
+	</head>
+	<body>
+		<input type="button" name="bnt" id="bnt" value="点击" />
+		<div id="box">加油</div>
+	</body>
+</html>

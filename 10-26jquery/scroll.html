@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+		<script src="jquery-3.1.0.min.js"></script>
+		<style>
+			div{
+				color:blue;
+				font-size: 24px;
+				font-weight: bold;
+			}
+			p{
+				color:green;
+				font-size: 24px;
+				font-weight: bold;
+			}
+			span{
+				display: none;
+				color: red;
+				font-size: 24px;
+				font-weight: bold;
+			}
+			
+		</style>
+	</head>
+	<body>
+		<div>Try scroll the iframe</div>
+		<p>Paragraph<span>Scroll happend!</span></p>
+	</body>
+	<script>
+		$(function(){
+			$("p").clone().appendTo(document.body);
+			$("p").clone().appendTo(document.body);
+			$("p").clone().appendTo(document.body);
+			$("p").clone().appendTo(document.body);
+			$(window).scroll(function(){
+				$("span").css("display","inline").fadeOut("slow");
+			})
+		})
+		
+	</script>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<input type="button" name="bnt" id="bnt" value="加载下一页" />
+		<div id="div1"></div>
+	</body>
+	<script>
+	var oDiv1 = document.getElementById("div1");
+	var pageIndex = 1
+		function loadUserTotal(arrUserData){
+			oDiv1.innerHTML = "";
+			for(var i = 0;i<arrUserData.length;i++){
+				var obj = JSON.parse(arrUserData[i].Data);
+				var p1 = document.createElement("p");
+				p1.innerHTML = "姓名："+obj.name+"--------积分："+obj.total;
+				oDiv1.appendChild(p1);
+			}
+		}
+		var srp=document.createElement("script");
+		srp.src = "http://10.17.158.44:8077/Product/GetProductsByPage_get?pagesize=10&pageindex=1&callback=loadUserTotal";
+
+		document.body.appendChild(srp);
+		var oBt = document.getElementById("bnt");
+		oBt.onclick = function(){
+			var srp = document.createElement("script");
+			pageIndex++;
+			srp.src = "http://10.17.158.44:8077/Product/GetProductsByPage_get?pagesize=10&pageindex="+pageIndex+"&callback=loadUserTotal";
+			document.body.appendChild(srp);
+		}
+		
+		
+	</script>
+</html>

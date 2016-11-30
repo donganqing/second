@@ -1,0 +1,19 @@
+$color: #158;
+$width: 100px;
+#box{
+    width: $width;
+    height: $width*2;
+    background: $color;
+    color: #fff;
+}
+#div1{
+    width: $width*3;
+    height: $width;
+    background: bisque;
+    margin: $width/3;
+}
+#div1{
+    h3{
+        color: red;
+    }
+}

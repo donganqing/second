@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title></title>
+	</head>
+	<body>
+		<script>
+		//对象的创建
+			/*var person = new Object();//创建一个对象 此时对象还没有属性和方法
+			person.name = "zhangsan";//创建对象的属性
+			person.name = "lisi";//赋值（覆盖的功能）
+			person.age = 18;
+			person.showName = function(){//创建对象的方法
+				alert(this.name);//this指向person
+			};
+			person.showAge=getAge;//注意不加（）
+			function getAge(){
+				alert(this.age);
+			}
+			person.showName();//lisi
+			person.showAge();//18
+			getAge();*///undefined 因为在getAge函数中this指向window
+			
+			
+			//对象的字面量定义(json)
+			var person = {
+				name : "zhangsan",//注意属性和方法用  ，隔开
+				age : 18,
+				showName : function(){
+					alert(this.name)
+				},
+				getAge : function(){
+					alert(this.age);
+				}
+			}
+			//alert(person.age);//18
+			//var attr = "age";
+			//alert(person.attr);//undefined "attr"的属性  但没有attr这个属性
+								//只有变量attr 所以是undefined
+			//alert(person["showName"])//弹出来的是showName定义的那个函数,因为没加（），没有调用函数
+			//person["showName"]()//张三
+			//alert(person["showName"]())//先弹zhangsan 然后是undefined
+			//attr = "getAge";
+			//person[attr]();//18
+			//alert( person[attr]())//弹两次 18  undefined
+			var attr="age";
+			alert(person.attr);//undefined person.attr 找的是attr这个属性，但只有变量attr,没有属性，所以是undefined
+		</script>
+		
+	</body>
+</html>

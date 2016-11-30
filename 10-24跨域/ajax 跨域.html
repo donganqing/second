@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title></title>
+	</head>
+	<body>
+		<div id="div1"></div>
+	</body>
+	<script>
+	function updataAjax(){
+		var obj={
+			name:userName,
+			total:total
+		}
+	
+		var oDiv1 = document.getElementById("div1");
+		 var xhr = new XMLHttpRequest();
+		 var url = "http://10.17.158.157:8070/Product/GetProductsByPage_get?pagesize=10&pageindex=1&callback=fn";
+				  // "http://10.17.158.157:8070/Product/GetProductsByPage_get?pagesize=10&pageindex=1&callback=loadUserTotal";
+		xhr.open("get",url,true);
+		 xhr.onreadystatechange = function(){
+		 	if(xhr.readyState==4){
+		 		if(xhr.status==200){
+		 			var obj = JSON.parse(xhr.responseText);
+		 			var p1 = document.createElement("p");
+		 			p1.innerHTML = "姓名："+obj.name+";积分："+obj.total;
+		 			oDiv1.appendChild(p1);
+		 		}else{
+		 			alert('没找到！');
+		 		}
+		 	}
+		 }
+		 xhr.send();
+		 }
+	function fn(){
+		
+	}
+		
+	</script>
+</html>
